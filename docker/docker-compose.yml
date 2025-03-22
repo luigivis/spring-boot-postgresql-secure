@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: victor
+      POSTGRES_DB: victor-test-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg:/var/lib/postgresql/data
+    command: postgres -c listen_addresses='*'
+    networks:
+      - victor-net
+
+volumes:
+  pg:
+
+networks:
+  victor-net:
+    driver: bridge
