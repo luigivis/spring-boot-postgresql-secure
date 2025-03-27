@@ -24,4 +24,8 @@ public class UserServiceImpl {
                 .build();
         return userRepository.save(entity);
     }
+
+    public void deleteUser(Long userId) {
+        userRepository.deleteById(userId);
+    }
 }
